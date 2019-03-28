@@ -12,7 +12,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"file:src/main/resources/META-INF/spring/**/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
 public class SqlConnectionTest {
     @Autowired
     private DataSource dataSource;
