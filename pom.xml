@@ -97,6 +97,14 @@
       <version>2.9.8</version>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.6</version>
+      <scope>provided</scope>
+    </dependency>
+
 <!--    &lt;!&ndash; https://mvnrepository.com/artifact/net.sf.json-lib/json-lib &ndash;&gt;-->
 <!--    <dependency>-->
 <!--      <groupId>net.sf.json-lib</groupId>-->
