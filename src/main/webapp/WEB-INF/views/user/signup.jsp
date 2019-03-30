@@ -37,16 +37,16 @@
                                 <input type="name" id="name" name="name" placeholder="이름을 입력해주세요." required="required" />
                             </div>
                             <div class="input_area">
-                                <label for="phone_number">Phone_number : </label>
-                                <input type="phone_number" id="phone_number" name="phone_number" placeholder="'-'를 제외한 연락처를 입력해주세요." required="required" />
+                                <label for="phoneNumber">Phone_number : </label>
+                                <input type="phoneNumber" id="phoneNumber" name="phoneNumber" placeholder="'-'를 제외한 연락처를 입력해주세요." required="required" />
                             </div>
                             <div class="input_area">
                                 <label for="address">주소 : </label>
                                 <input type="address" id="address" name="address" placeholder="주소를 입력해주세요." required="required" />
                             </div>
                             <div class="input_area">
-                                <label for="detail_address">상세 주소 : </label>
-                                <input type="detail_address" id="detail_address" name="detail_address" placeholder="상세 주소를 입력해주세요." required="required" />
+                                <label for="detailAddress">상세 주소 : </label>
+                                <input type="detailAddress" id="detailAddress" name="detailAddress" placeholder="상세 주소를 입력해주세요." required="required" />
                             </div>
                             <div class="input_area">
                                 <label for="zipcode">우편번호 : </label>

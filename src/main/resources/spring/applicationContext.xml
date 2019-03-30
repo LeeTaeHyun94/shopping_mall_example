@@ -27,8 +27,9 @@
     <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.hyun.shopping_mall_example.controller"/>
-    <context:component-scan base-package="com.hyun.shopping_mall_example.domain"/>
-    <context:component-scan base-package="com.hyun.shopping_mall_example.persistence"/>
-    <context:component-scan base-package="com.hyun.shopping_mall_example.service"/>
+    <context:component-scan base-package="com.hyun.shopping_mall_example"/>
+<!--    <context:component-scan base-package="com.hyun.shopping_mall_example.controller"/>-->
+<!--    <context:component-scan base-package="com.hyun.shopping_mall_example.domain"/>-->
+<!--    <context:component-scan base-package="com.hyun.shopping_mall_example.persistence"/>-->
+<!--    <context:component-scan base-package="com.hyun.shopping_mall_example.service"/>-->
 </beans>

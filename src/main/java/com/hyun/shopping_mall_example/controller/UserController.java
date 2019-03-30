@@ -16,11 +16,9 @@ public class UserController {
     private static final Logger Logger = LoggerFactory.getLogger(UserController.class);
 
     private UserService userService;
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserController(UserService userService, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     @GetMapping(value = "/signup")
@@ -31,7 +29,6 @@ public class UserController {
     @PostMapping(value = "/signup")
     public String signup(UserVO userVO) throws Exception {
         Logger.info("Post Signup");
-        userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
         userService.signup(userVO);
         return "redirect:/";
     }
