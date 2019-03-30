@@ -9,7 +9,7 @@
 
     <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/test?serverTimezone=UTC&amp;useUnicode=True&amp;characterEncoding=utf-8"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/shopping_mall_example?serverTimezone=UTC&amp;useUnicode=True&amp;characterEncoding=utf-8"/>
         <property name="username" value="hyun"/>
         <property name="password" value="!Hyun1234"/>
     </bean>
@@ -24,6 +24,11 @@
         <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 
+    <bean id="bCryptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
+
     <mvc:annotation-driven/>
-    <context:component-scan base-package="com.hyun.shopping_mall_example"/>
+    <context:component-scan base-package="com.hyun.shopping_mall_example.controller"/>
+    <context:component-scan base-package="com.hyun.shopping_mall_example.domain"/>
+    <context:component-scan base-package="com.hyun.shopping_mall_example.persistence"/>
+    <context:component-scan base-package="com.hyun.shopping_mall_example.service"/>
 </beans>
