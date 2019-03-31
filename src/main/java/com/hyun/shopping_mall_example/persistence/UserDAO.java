@@ -17,4 +17,8 @@ public class UserDAO {
     public void signup(UserVO userVO) throws Exception {
         sqlSession.insert(mapper + ".signup", userVO);
     }
+
+    public UserVO signin(UserVO userVO) throws Exception {
+        return sqlSession.selectOne(mapper + ".signin", userVO);
+    }
 }

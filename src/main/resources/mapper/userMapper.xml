@@ -9,4 +9,10 @@
         insert into user(name, username, password, phone_number, address, detail_address, zipcode) values (#{name}, #{username}, #{password}, #{phoneNumber}, #{address}, #{detailAddress}, #{zipcode})
     </insert>
 
+    <!-- 로그인 -->
+    <select id="signin" resultType="com.hyun.shopping_mall_example.domain.UserVO">
+        select * from user
+        where username = #{username}
+    </select>
+
 </mapper>

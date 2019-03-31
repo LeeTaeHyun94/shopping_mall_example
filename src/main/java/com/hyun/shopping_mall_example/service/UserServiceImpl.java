@@ -5,6 +5,8 @@ import com.hyun.shopping_mall_example.persistence.UserDAO;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 @Service
 public class UserServiceImpl implements UserService {
     private UserDAO userDAO;
@@ -19,5 +21,19 @@ public class UserServiceImpl implements UserService {
     public void signup(UserVO userVO) throws Exception {
         userVO.setPassword(bCryptPasswordEncoder.encode(userVO.getPassword()));
         userDAO.signup(userVO);
+    }
+
+    @Override
+    public UserVO signin(UserVO userVO) throws Exception {
+        UserVO loginUser = userDAO.signin(userVO);
+        if (loginUser == null) return null;
+        boolean matchPassword = bCryptPasswordEncoder.matches(userVO.getPassword(), loginUser.getPassword());
+        if (!matchPassword) return null;
+        return loginUser;
+    }
+
+    @Override
+    public void signout(HttpSession session) throws Exception {
+        session.invalidate();
     }
 }
