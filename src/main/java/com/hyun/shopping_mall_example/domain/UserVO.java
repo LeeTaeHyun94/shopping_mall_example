@@ -12,10 +12,10 @@ public class UserVO {
     private String username;
     private String password;
     private String name;
-    private String phoneNumber;
+    private String phone_number;
     private String address;
-    private String detailAddress;
+    private String detail_address;
     private String zipcode;
-    private Timestamp regDate;
-    private Integer isEmailVerified;
+    private Timestamp reg_date;
+    private Integer is_admin;
 }

@@ -18,7 +18,7 @@
         </li>
     </c:if>
     <c:if test="${user != null}">
-        <c:if test="${user.isEmailVerified == 9}">
+        <c:if test="${user.is_admin == 1}">
             <a href="/admin/index">관리자 화면</a>
         </c:if>
         <li>

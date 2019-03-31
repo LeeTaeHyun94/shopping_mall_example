@@ -26,7 +26,7 @@
                         <form role="form" method="post" autocomplete="off">
                             <div class="input_area">
                                 <label for="username">Username : </label>
-                                <input type="email" id="username" name="username" placeholder="example@email.com" required="required" />
+                                <input id="username" name="username" required="required" />
                             </div>
                             <div class="input_area">
                                 <label for="password">Password : </label>

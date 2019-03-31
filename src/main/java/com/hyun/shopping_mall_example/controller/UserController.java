@@ -58,7 +58,6 @@ public class UserController {
     public String signout(HttpSession httpSession) throws Exception {
         Logger.info("Get Signout");
         httpSession.invalidate();
-//        userService.signout(httpSession);
         return "redirect:/";
     }
 }

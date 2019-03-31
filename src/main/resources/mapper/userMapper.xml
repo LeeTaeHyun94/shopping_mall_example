@@ -6,7 +6,7 @@
 
     <!-- 회원 가입 -->
     <insert id="signup">
-        insert into user(name, username, password, phone_number, address, detail_address, zipcode) values (#{name}, #{username}, #{password}, #{phoneNumber}, #{address}, #{detailAddress}, #{zipcode})
+        insert into user(name, username, password, phone_number, address, detail_address, zipcode) values (#{name}, #{username}, #{password}, #{phone_number}, #{address}, #{detail_address}, #{zipcode})
     </insert>
 
     <!-- 로그인 -->

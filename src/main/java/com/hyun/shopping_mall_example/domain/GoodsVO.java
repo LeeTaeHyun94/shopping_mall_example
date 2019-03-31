@@ -15,5 +15,5 @@ public class GoodsVO {
     private int stock;
     private String description;
     private String imgUrl;
-    private Timestamp regDate;
+    private Timestamp reg_date;
 }
