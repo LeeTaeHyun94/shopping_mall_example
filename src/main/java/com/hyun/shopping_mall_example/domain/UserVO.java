@@ -17,5 +17,5 @@ public class UserVO {
     private String detail_address;
     private String zipcode;
     private Timestamp reg_date;
-    private Integer is_admin;
+    private Boolean is_admin;
 }
