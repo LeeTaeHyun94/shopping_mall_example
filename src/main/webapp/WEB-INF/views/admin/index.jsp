@@ -2,25 +2,33 @@
 <html>
     <head>
         <title>Hyun Admin</title>
+        <link rel="stylesheet" href="/resources/css/AdminIndex.css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </head>
     <body>
         <div id="root">
             <header id="header">
                 <div id="header_box">
-                    <%@ include file="../include/header.jsp"%>
+                    <%@ include file="include/header.jsp"%>
                 </div>
             </header>
             <nav id="nav_box">
-                <%@ include file="../include/nav.jsp"%>
+                <%@ include file="include/nav.jsp"%>
             </nav>
             <section id="container">
+                <aside>
+                    <%@ include file="include/aside.jsp"%>
+                </aside>
                 <div id="container_box">
-                    관리자 페이지에 오신 것을 환영합니다.
+                    관리자 페이지
                 </div>
             </section>
             <footer id="footer">
                 <div id="footer_box">
-                    <%@ include file="../include/footer.jsp" %>
+                    <%@ include file="include/footer.jsp" %>
                 </div>
             </footer>
         </div>
