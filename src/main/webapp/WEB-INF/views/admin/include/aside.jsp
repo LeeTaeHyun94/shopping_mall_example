@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
 <ul>
-    <a href=""><li>상품 등록</li></a>
+    <a href="/admin/goods/register"><li>상품 등록</li></a>
     <a href=""><li>상품 목록</li></a>
     <a href=""><li>리뷰</li></a>
     <a href=""><li>유저 목록</li></a>

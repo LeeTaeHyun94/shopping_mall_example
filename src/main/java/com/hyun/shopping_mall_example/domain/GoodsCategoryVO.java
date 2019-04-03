@@ -9,5 +9,4 @@ public class GoodsCategoryVO {
     private Long id;
     private String name;
     private Long categoryIdRef;
-    private int level;
 }
