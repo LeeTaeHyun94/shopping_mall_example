@@ -1,11 +1,13 @@
 package com.hyun.shopping_mall_example.controller;
 
 import com.hyun.shopping_mall_example.domain.GoodsCategoryVO;
+import com.hyun.shopping_mall_example.domain.GoodsVO;
 import com.hyun.shopping_mall_example.service.AdminService;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -25,10 +27,16 @@ public class AdminController {
     }
 
     @GetMapping(value = "/goods/register")
-    public void goodsRegister(Model model) throws Exception {
+    public void registerGoods(Model model) throws Exception {
         System.out.println("Get Admin Goods Register");
 
         List<GoodsCategoryVO> goodsCategories = adminService.getGoodsCategory();
         model.addAttribute("goodsCategories", JSONArray.fromObject(goodsCategories));
+    }
+
+    @PostMapping(value = "/goods/register")
+    public String registerGoods(GoodsVO goodsVO) throws Exception {
+        adminService.registerGoods(goodsVO);
+        return "redirect:/admin/index";
     }
 }

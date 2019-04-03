@@ -9,4 +9,9 @@
         select * from goods_category
     </select>
 
+    <!-- 상품 등록 -->
+    <insert id="registerGoods">
+        insert into goods (name, categoryId, price, stock, description) values (#{name}, #{categoryId}, #{price}, #{stock}, #{description})
+    </insert>
+
 </mapper>
