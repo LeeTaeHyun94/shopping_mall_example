@@ -8,4 +8,6 @@ import java.util.List;
 public interface AdminService {
     public List<GoodsCategoryVO> getGoodsCategory() throws Exception;
     public void registerGoods(GoodsVO goodsVO) throws Exception;
+    public List<GoodsVO> goodsList() throws Exception;
+    public GoodsVO getGoods(Long id) throws Exception;
 }

@@ -24,4 +24,14 @@ public class AdminServiceImpl implements AdminService {
     public void registerGoods(GoodsVO goodsVO) throws Exception {
         adminDAO.registerGoods(goodsVO);
     }
+
+    @Override
+    public List<GoodsVO> goodsList() throws Exception {
+        return adminDAO.goodsList();
+    }
+
+    @Override
+    public GoodsVO getGoods(Long id) throws Exception {
+        return adminDAO.getOneGoods(id);
+    }
 }

@@ -6,9 +6,7 @@ import com.hyun.shopping_mall_example.service.AdminService;
 import net.sf.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,5 +36,17 @@ public class AdminController {
     public String registerGoods(GoodsVO goodsVO) throws Exception {
         adminService.registerGoods(goodsVO);
         return "redirect:/admin/index";
+    }
+
+    @GetMapping(value = "/goods/list")
+    public void getGoodsList(Model model) throws Exception {
+        System.out.println("Get Goods List");
+        model.addAttribute("goodsList", adminService.goodsList());
+    }
+
+    @GetMapping(value = "/goods/detail")
+    public void getGoods(@RequestParam("id") Long id, Model model) throws Exception {
+        System.out.println("Get Goods");
+        model.addAttribute("goods", adminService.getGoods(id));
     }
 }

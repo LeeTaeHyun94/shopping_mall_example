@@ -24,4 +24,12 @@ public class AdminDAO {
     public void registerGoods(GoodsVO goodsVO) throws Exception {
         sqlSession.insert(mapper + ".registerGoods", goodsVO);
     }
+
+    public List<GoodsVO> goodsList() throws Exception {
+        return sqlSession.selectList(mapper + ".goodsList");
+    }
+
+    public GoodsVO getOneGoods(Long id) throws Exception {
+        return sqlSession.selectOne(mapper + ".oneGoods", id);
+    }
 }
