@@ -45,8 +45,17 @@ public class AdminController {
     }
 
     @GetMapping(value = "/goods/detail")
-    public void getGoods(@RequestParam("id") Long id, Model model) throws Exception {
+    public void getGoods(@RequestParam("goodsid") Long id, Model model) throws Exception {
         System.out.println("Get Goods");
-        model.addAttribute("goods", adminService.getGoods(id));
+        model.addAttribute("goods", adminService.goodsDetail(id));
+    }
+
+    @GetMapping(value = "/goods/modify")
+    public void modifyGoods(@RequestParam("goodsid") Long id, Model model) throws Exception {
+        System.out.println("Get Modify Goods");
+        model.addAttribute("goods", adminService.goodsDetail(id));
+
+        List<GoodsCategoryVO> goodsCategories = adminService.getGoodsCategory();
+        model.addAttribute("goodsCategories", JSONArray.fromObject(goodsCategories));
     }
 }

@@ -1,7 +1,4 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
 <html>
     <head>
         <title>Hyun Admin</title>
@@ -27,42 +24,44 @@
                     <%@ include file="../include/aside.jsp"%>
                 </aside>
                 <div id="container_box">
-                    <h2>상품 정보</h2>
+                    <h2>상품 등록</h2>
                     <form role="form" method="post" autocomplete="off">
                         <input type="hidden" name="goodsid" value="${goods.id}">
                         <div class="inputArea">
                             <label>1차 분류</label>
-                            <span class="firstCategory">
-                                <c:if test="${goods.categoryIdRef != 0}">${goods.categoryIdRef}</c:if>
-                            </span>
+                            <select class="firstCategory">
+                                <option value="">전체</option>
+                            </select>
 
                             <label>2차 분류</label>
-                            <span class="secondCategory">${goods.categoryId}</span>
+                            <select class="secondCategory" name="categoryId">
+                                <option value="">전체</option>
+                            </select>
                         </div>
 
                         <div class="inputArea">
                             <label for="name">상품명 : </label>
-                            <span id="name">${goods.name}</span>
+                            <input type="text" id="name" name="name" value="${goods.name}">
                         </div>
 
                         <div class="inputArea">
                             <label for="price">상품 가격 : </label>
-                            <span id="price"><fmt:formatNumber value="${goods.price}" pattern="###,###,###" /></span>
+                            <input type="text" id="price" name="price" value="${goods.price}">
                         </div>
 
                         <div class="inputArea">
                             <label for="stock">상품 수량 : </label>
-                            <span id="stock">${goods.stock}</span>
+                            <input type="text" id="stock" name="stock" value="${goods.stock}">
                         </div>
 
                         <div class="inputArea">
                             <label for="description">상품 소개 : </label>
-                            <span id="description">${goods.description}</span>
+                            <textarea rows="5" cols="50" id="description" name="description">${goods.description}</textarea>
                         </div>
 
                         <div class="inputArea">
-                            <button type="button" id="modify_btn" class="btn btn-warning">수정</button>
-                            <button type="button" id="delete_btn" class="btn btn-danger">삭제</button>
+                            <button type="submit" id="modify_btn" class="btn btn-primary">수정 완료</button>
+                            <button type="submit" id="cancel_btn" class="btn btn-warning">취소</button>
                         </div>
                     </form>
                 </div>
@@ -73,19 +72,26 @@
                 </div>
             </footer>
         </div>
+        <script>
+            let selectedCategoryId = ${goods.categoryId}, selectedCategoryIdRef = ${goods.categoryIdRef}, selectedCategoryName = "${goods.secondCategoryName}";
+
+            let firstCategory = $(".firstCategory"), secondCategory = $(".secondCategory");
+
+            if (selectedCategoryIdRef != 0) {
+                firstCategory.val(selectedCategoryIdRef);
+                firstCategory.children().remove();
+                firstCategory.append("<option value='" + selectedCategoryIdRef + "'>" + "${goods.firstCategoryName}" + "</option>");
+                secondCategory.val(selectedCategoryId);
+                secondCategory.children().remove();
+                secondCategory.append("<option value='" + selectedCategoryId + "'>" + selectedCategoryName + "</option>");
+            } else {
+                firstCategory.val(selectedCategoryId);
+                secondCategory.append("<option value='" + selectedCategoryId + "' selected>전체</option>");
+            }
+
+            ${"cancel_btn"}.onclick(function () {
+                location.href = "/admin/goods/detail?goodsid=" + ${goods.id};
+            });
+        </script>
     </body>
-    <script>
-        let formObject = $("form[role='form']");
-
-        $("#modify_btn").click(function () {
-            formObject.attr("method", "get");
-            formObject.attr("action", "/admin/goods/modify");
-            formObject.submit();
-        });
-
-        $("#delete_btn").click(function () {
-            formObject.attr("action", "/admin/goods/delete");
-            formObject.submit();
-        });
-    </script>
 </html>

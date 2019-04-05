@@ -2,6 +2,7 @@ package com.hyun.shopping_mall_example.persistence;
 
 import com.hyun.shopping_mall_example.domain.GoodsCategoryVO;
 import com.hyun.shopping_mall_example.domain.GoodsVO;
+import com.hyun.shopping_mall_example.dto.GoodsDetailDTO;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
@@ -31,5 +32,13 @@ public class AdminDAO {
 
     public GoodsVO getOneGoods(Long id) throws Exception {
         return sqlSession.selectOne(mapper + ".oneGoods", id);
+    }
+
+    public GoodsDetailDTO goodsDetail(Long id) throws Exception {
+        return sqlSession.selectOne(mapper + ".goodsDetail", id);
+    }
+
+    public String getGoodsCategoryName(Long id) throws Exception {
+        return sqlSession.selectOne(mapper + ".getGoodsCategoryName", id);
     }
 }

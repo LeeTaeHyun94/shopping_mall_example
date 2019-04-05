@@ -2,6 +2,7 @@ package com.hyun.shopping_mall_example.service;
 
 import com.hyun.shopping_mall_example.domain.GoodsCategoryVO;
 import com.hyun.shopping_mall_example.domain.GoodsVO;
+import com.hyun.shopping_mall_example.dto.GoodsDetailDTO;
 import com.hyun.shopping_mall_example.persistence.AdminDAO;
 import org.springframework.stereotype.Service;
 
@@ -33,5 +34,13 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public GoodsVO getGoods(Long id) throws Exception {
         return adminDAO.getOneGoods(id);
+    }
+
+    @Override
+    public GoodsDetailDTO goodsDetail(Long id) throws Exception {
+        GoodsDetailDTO goods = adminDAO.goodsDetail(id);
+        Long firstCategoryId = goods.getCategoryIdRef();
+        if (firstCategoryId != null) goods.setFirstCategoryName(adminDAO.getGoodsCategoryName(firstCategoryId));
+        return goods;
     }
 }

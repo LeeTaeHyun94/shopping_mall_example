@@ -112,7 +112,7 @@
                         if (selectedFirstCategory == secondCategories[i].categoryIdRef)
                             secondCategorySelectBox.append("<option value='" + secondCategories[i].id + "'>" + secondCategories[i].name + "</option>");
                 });
-            })
+            });
         </script>
     </body>
 </html>
