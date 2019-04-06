@@ -29,15 +29,18 @@
                 <div id="container_box">
                     <h2>상품 정보</h2>
                     <form role="form" method="post" autocomplete="off">
-                        <input type="hidden" name="goodsid" value="${goods.id}">
+                        <input type="hidden" name="id" value="${goods.id}">
                         <div class="inputArea">
                             <label>1차 분류</label>
                             <span class="firstCategory">
                                 <c:if test="${goods.categoryIdRef != 0}">${goods.categoryIdRef}</c:if>
+                                <c:if test="${goods.categoryIdRef == 0}">${goods.categoryId}</c:if>
                             </span>
 
                             <label>2차 분류</label>
-                            <span class="secondCategory">${goods.categoryId}</span>
+                            <span class="secondCategory">
+                                <c:if test="${goods.categoryIdRef != 0}">${goods.categoryId}</c:if>
+                            </span>
                         </div>
 
                         <div class="inputArea">
@@ -84,8 +87,11 @@
         });
 
         $("#delete_btn").click(function () {
-            formObject.attr("action", "/admin/goods/delete");
-            formObject.submit();
+            let confirmed = confirm("삭제하시겠습니까?");
+            if (confirmed) {
+                formObject.attr("action", "/admin/goods/delete");
+                formObject.submit();
+            }
         });
     </script>
 </html>

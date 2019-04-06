@@ -40,4 +40,21 @@
         where id = #{id}
     </select>
 
+    <!-- 상품 수정 -->
+    <update id="modifyGoods">
+        update goods
+        set
+        name = #{name},
+        categoryId = #{categoryId},
+        price = #{price},
+        stock = #{stock},
+        description = #{description}
+        where id = #{id}
+    </update>
+
+    <!-- 상품 삭제 -->
+    <delete id="deleteGoods">
+        delete from goods where id = #{id}
+    </delete>
+
 </mapper>

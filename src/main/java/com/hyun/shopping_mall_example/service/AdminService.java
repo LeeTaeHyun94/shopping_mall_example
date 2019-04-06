@@ -12,4 +12,6 @@ public interface AdminService {
     public List<GoodsVO> goodsList() throws Exception;
     public GoodsVO getGoods(Long id) throws Exception;
     public GoodsDetailDTO goodsDetail(Long id) throws Exception;
+    public void modifyGoods(GoodsVO goodsVO) throws Exception;
+    public void deleteGoods(Long id) throws Exception;
 }

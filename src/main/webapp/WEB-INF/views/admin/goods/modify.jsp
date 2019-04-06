@@ -26,7 +26,7 @@
                 <div id="container_box">
                     <h2>상품 등록</h2>
                     <form role="form" method="post" autocomplete="off">
-                        <input type="hidden" name="goodsid" value="${goods.id}">
+                        <input type="hidden" name="id" value="${goods.id}">
                         <div class="inputArea">
                             <label>1차 분류</label>
                             <select class="firstCategory">
@@ -60,8 +60,8 @@
                         </div>
 
                         <div class="inputArea">
-                            <button type="submit" id="modify_btn" class="btn btn-primary">수정 완료</button>
-                            <button type="submit" id="cancel_btn" class="btn btn-warning">취소</button>
+                            <button type="button" id="modify_btn" class="btn btn-primary">수정 완료</button>
+                            <button type="button" id="cancel_btn" class="btn btn-warning">취소</button>
                         </div>
                     </form>
                 </div>
@@ -73,12 +73,13 @@
             </footer>
         </div>
         <script>
-            let selectedCategoryId = ${goods.categoryId}, selectedCategoryIdRef = ${goods.categoryIdRef}, selectedCategoryName = "${goods.secondCategoryName}";
+            let selectedCategoryId = ${goods.categoryId}, selectedCategoryName = "${goods.secondCategoryName}", selectedCategoryIdRef = ${goods.categoryIdRef};
 
             let firstCategory = $(".firstCategory"), secondCategory = $(".secondCategory");
 
             if (selectedCategoryIdRef != 0) {
                 firstCategory.val(selectedCategoryIdRef);
+
                 firstCategory.children().remove();
                 firstCategory.append("<option value='" + selectedCategoryIdRef + "'>" + "${goods.firstCategoryName}" + "</option>");
                 secondCategory.val(selectedCategoryId);
@@ -86,11 +87,14 @@
                 secondCategory.append("<option value='" + selectedCategoryId + "'>" + selectedCategoryName + "</option>");
             } else {
                 firstCategory.val(selectedCategoryId);
+                firstCategory.children().remove();
+                firstCategory.append("<option value='" + selectedCategoryId + "'>" + "${goods.secondCategoryName}" + "</option>");
+                secondCategory.val(selectedCategoryId);
                 secondCategory.append("<option value='" + selectedCategoryId + "' selected>전체</option>");
             }
 
-            ${"cancel_btn"}.onclick(function () {
-                location.href = "/admin/goods/detail?goodsid=" + ${goods.id};
+            $("#cancel_btn").click(function () {
+                location.href = "/admin/goods/detail?id=" + ${goods.id};
             });
         </script>
     </body>

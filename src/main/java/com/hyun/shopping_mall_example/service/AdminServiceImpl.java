@@ -41,6 +41,17 @@ public class AdminServiceImpl implements AdminService {
         GoodsDetailDTO goods = adminDAO.goodsDetail(id);
         Long firstCategoryId = goods.getCategoryIdRef();
         if (firstCategoryId != null) goods.setFirstCategoryName(adminDAO.getGoodsCategoryName(firstCategoryId));
+        else goods.setCategoryIdRef(0L);
         return goods;
+    }
+
+    @Override
+    public void modifyGoods(GoodsVO goodsVO) throws Exception {
+        adminDAO.modifyGoods(goodsVO);
+    }
+
+    @Override
+    public void deleteGoods(Long id) throws Exception {
+        adminDAO.deleteGoods(id);
     }
 }

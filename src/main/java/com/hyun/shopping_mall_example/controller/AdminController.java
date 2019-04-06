@@ -45,17 +45,31 @@ public class AdminController {
     }
 
     @GetMapping(value = "/goods/detail")
-    public void getGoods(@RequestParam("goodsid") Long id, Model model) throws Exception {
+    public void getGoods(@RequestParam("id") Long id, Model model) throws Exception {
         System.out.println("Get Goods");
         model.addAttribute("goods", adminService.goodsDetail(id));
     }
 
     @GetMapping(value = "/goods/modify")
-    public void modifyGoods(@RequestParam("goodsid") Long id, Model model) throws Exception {
+    public void modifyGoods(@RequestParam("id") Long id, Model model) throws Exception {
         System.out.println("Get Modify Goods");
         model.addAttribute("goods", adminService.goodsDetail(id));
 
         List<GoodsCategoryVO> goodsCategories = adminService.getGoodsCategory();
         model.addAttribute("goodsCategories", JSONArray.fromObject(goodsCategories));
+    }
+
+    @PostMapping(value = "/goods/modify")
+    public String modifyGoods(GoodsVO goodsVO) throws Exception {
+        System.out.println("Post Modify Goods");
+        adminService.modifyGoods(goodsVO);
+        return "redirect:/admin/index";
+    }
+
+    @PostMapping(value = "/goods/delete")
+    public String deleteGoods(@RequestParam("id") Long id) throws Exception {
+        System.out.println("Post Delete Goods");
+        adminService.deleteGoods(id);
+        return "redirect:/admin/index";
     }
 }

@@ -46,7 +46,7 @@
                                 <tr>
                                     <td>${goods.id}</td>
                                     <td>
-                                        <a href="/admin/goods/detail?goodsid=${goods.id}">${goods.name}</a>
+                                        <a href="/admin/goods/detail?id=${goods.id}">${goods.name}</a>
                                     </td>
                                     <td>${goods.categoryId}</td>
                                     <td>

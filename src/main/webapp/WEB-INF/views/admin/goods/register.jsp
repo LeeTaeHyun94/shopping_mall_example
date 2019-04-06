@@ -59,7 +59,7 @@
                         </div>
 
                         <div class="inputArea">
-                            <button type="submit" id="registerGoods_btn">등록</button>
+                            <button type="submit" id="registerGoods_btn" class="btn btn-primary">등록</button>
                         </div>
                     </form>
                 </div>

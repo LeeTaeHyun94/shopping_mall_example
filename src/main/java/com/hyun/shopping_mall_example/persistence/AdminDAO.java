@@ -41,4 +41,12 @@ public class AdminDAO {
     public String getGoodsCategoryName(Long id) throws Exception {
         return sqlSession.selectOne(mapper + ".getGoodsCategoryName", id);
     }
+
+    public void modifyGoods(GoodsVO goodsVO) throws Exception {
+        sqlSession.update(mapper + ".modifyGoods", goodsVO);
+    }
+
+    public void deleteGoods(Long id) throws Exception {
+        sqlSession.delete(mapper + ".deleteGoods", id);
+    }
 }
