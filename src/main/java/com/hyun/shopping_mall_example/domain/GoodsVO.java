@@ -16,4 +16,5 @@ public class GoodsVO {
     private String description;
     private String imgUrl;
     private Timestamp reg_date;
+    private String thumbImgUrl;
 }

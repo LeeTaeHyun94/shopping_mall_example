@@ -25,7 +25,7 @@
                 </aside>
                 <div id="container_box">
                     <h2>상품 등록</h2>
-                    <form role="form" method="post" autocomplete="off">
+                    <form role="form" method="post" autocomplete="off" enctype="multipart/form-data">
                         <div class="inputArea">
                             <label>1차 분류</label>
                             <select class="firstCategory">
@@ -56,6 +56,26 @@
                         <div class="inputArea">
                             <label for="description">상품 소개 : </label>
                             <textarea rows="5" cols="50" id="description" name="description"></textarea>
+                        </div>
+
+                        <div class="inputArea">
+                            <label for="imgFile">이미지 : </label>
+                            <input type="file" id="imgFile" name="imgFile" />
+                            <div class="select_img">
+                                <img src="/" />
+                            </div>
+                            <script>
+                                $("#imgFile").change(function () {
+                                    if (this.files && this.files[0]) {
+                                        let fileReader = new FileReader();
+                                        fileReader.onload = function (data) {
+                                            $(".select_img img").attr("src", data.target.result).width(500);
+                                        };
+                                        fileReader.readAsDataURL(this.files[0]);
+                                    }
+                                });
+                            </script>
+                            <%=request.getServletContext().getRealPath("/")%>
                         </div>
 
                         <div class="inputArea">

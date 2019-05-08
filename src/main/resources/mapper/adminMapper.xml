@@ -11,7 +11,7 @@
 
     <!-- 상품 등록 -->
     <insert id="registerGoods">
-        insert into goods (name, categoryId, price, stock, description) values (#{name}, #{categoryId}, #{price}, #{stock}, #{description})
+        insert into goods (name, categoryId, price, stock, description, imgUrl, thumbImgUrl) values (#{name}, #{categoryId}, #{price}, #{stock}, #{description}, #{imgUrl}, #{thumbImgUrl})
     </insert>
 
     <!-- 상품 목록 조회 -->

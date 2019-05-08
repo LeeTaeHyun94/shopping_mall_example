@@ -128,6 +128,20 @@
       <classifier>jdk15</classifier>
     </dependency>
 
+    <!-- https://mvnrepository.com/artifact/net.coobird/thumbnailator -->
+    <dependency>
+      <groupId>net.coobird</groupId>
+      <artifactId>thumbnailator</artifactId>
+      <version>0.4.8</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
+    <dependency>
+      <groupId>commons-fileupload</groupId>
+      <artifactId>commons-fileupload</artifactId>
+      <version>1.4</version>
+    </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-test -->
     <dependency>
       <groupId>org.springframework</groupId>
