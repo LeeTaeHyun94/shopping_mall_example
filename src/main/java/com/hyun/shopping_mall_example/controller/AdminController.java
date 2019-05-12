@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -64,9 +65,9 @@ public class AdminController {
     }
 
     @PostMapping(value = "/goods/modify")
-    public String modifyGoods(GoodsVO goodsVO) throws Exception {
+    public String modifyGoods(GoodsVO goodsVO, MultipartFile imgFile, HttpServletRequest httpServletRequest) throws Exception {
         System.out.println("Post Modify Goods");
-        adminService.modifyGoods(goodsVO);
+        adminService.modifyGoods(goodsVO, imgFile, httpServletRequest);
         return "redirect:/admin/index";
     }
 

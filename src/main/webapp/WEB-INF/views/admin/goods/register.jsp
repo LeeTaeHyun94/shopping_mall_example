@@ -75,7 +75,6 @@
                                     }
                                 });
                             </script>
-                            <%=request.getServletContext().getRealPath("/")%>
                         </div>
 
                         <div class="inputArea">

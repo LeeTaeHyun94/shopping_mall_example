@@ -25,7 +25,7 @@
                 </aside>
                 <div id="container_box">
                     <h2>상품 등록</h2>
-                    <form role="form" method="post" autocomplete="off">
+                    <form role="form" method="post" autocomplete="off" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="${goods.id}">
                         <div class="inputArea">
                             <label>1차 분류</label>
@@ -60,7 +60,28 @@
                         </div>
 
                         <div class="inputArea">
-                            <button type="button" id="modify_btn" class="btn btn-primary">수정 완료</button>
+                            <label for="imgFile">이미지 : </label>
+                            <input type="file" id="imgFile" name="imgFile" />
+                            <div class="select_img">
+                                <img src="${goods.imgUrl}" />
+                                <input type="hidden" name="imgUrl" value="${goods.imgUrl}" />
+                                <input type="hidden" name="thumbImgUrl" value="${goods.thumbImgUrl}" />
+                            </div>
+                            <script>
+                                $("#imgFile").change(function () {
+                                    if (this.files && this.files[0]) {
+                                        let fileReader = new FileReader();
+                                        fileReader.onload = function (data) {
+                                            $(".select_img img").attr("src", data.target.result).width(500);
+                                        };
+                                        fileReader.readAsDataURL(this.files[0]);
+                                    }
+                                });
+                            </script>
+                        </div>
+
+                        <div class="inputArea">
+                            <button type="submit" id="modify_btn" class="btn btn-primary">수정 완료</button>
                             <button type="button" id="cancel_btn" class="btn btn-warning">취소</button>
                         </div>
                     </form>

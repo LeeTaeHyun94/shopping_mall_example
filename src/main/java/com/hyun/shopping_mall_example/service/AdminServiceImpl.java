@@ -8,6 +8,7 @@ import com.hyun.shopping_mall_example.utils.UploadFileUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.util.List;
 
@@ -58,7 +59,22 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public void modifyGoods(GoodsVO goodsVO) throws Exception {
+    public void modifyGoods(GoodsVO goodsVO, MultipartFile imgFile, HttpServletRequest httpServletRequest) throws Exception {
+        if (imgFile.getOriginalFilename() != null && imgFile.getOriginalFilename() != "") {
+            new File(uploadPath + httpServletRequest.getParameter("imgUrl")).delete();
+            new File(uploadPath + httpServletRequest.getParameter("thumbImgUrl")).delete();
+
+            String imgUploadPath = uploadPath + File.separator + "img";
+            String datePath = UploadFileUtils.makePath(imgUploadPath);
+            String fileName = UploadFileUtils.fileUpload(imgUploadPath, imgFile.getOriginalFilename(), imgFile.getBytes(), datePath);
+
+            goodsVO.setImgUrl(File.separator + "img" + datePath + File.separator + fileName);
+            goodsVO.setThumbImgUrl(File.separator + "img" + datePath + File.separator + "s" + File.separator + "s_" + fileName);
+        }
+        else {
+            goodsVO.setImgUrl(httpServletRequest.getParameter("imgUrl"));
+            goodsVO.setThumbImgUrl(httpServletRequest.getParameter("thumbImgUrl"));
+        }
         adminDAO.modifyGoods(goodsVO);
     }
 

@@ -5,6 +5,7 @@ import com.hyun.shopping_mall_example.domain.GoodsVO;
 import com.hyun.shopping_mall_example.dto.GoodsDetailDTO;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface AdminService {
@@ -13,6 +14,6 @@ public interface AdminService {
     public List<GoodsVO> goodsList() throws Exception;
     public GoodsVO getGoods(Long id) throws Exception;
     public GoodsDetailDTO goodsDetail(Long id) throws Exception;
-    public void modifyGoods(GoodsVO goodsVO) throws Exception;
+    public void modifyGoods(GoodsVO goodsVO, MultipartFile imgFile, HttpServletRequest httpServletRequest) throws Exception;
     public void deleteGoods(Long id) throws Exception;
 }

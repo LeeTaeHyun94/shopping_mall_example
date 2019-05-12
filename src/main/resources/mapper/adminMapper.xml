@@ -48,7 +48,9 @@
         categoryId = #{categoryId},
         price = #{price},
         stock = #{stock},
-        description = #{description}
+        imgUrl = #{imgUrl},
+        description = #{description},
+        thumbImgUrl = #{thumbImgUrl}
         where id = #{id}
     </update>
 
