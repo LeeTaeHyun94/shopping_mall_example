@@ -60,7 +60,7 @@
 
                         <div class="inputArea">
                             <label for="description">상품 소개 : </label>
-                            <span id="description">${goods.description}</span>
+                            <div id="description">${goods.description}</div>
                         </div>
 
                         <div class="inputArea">

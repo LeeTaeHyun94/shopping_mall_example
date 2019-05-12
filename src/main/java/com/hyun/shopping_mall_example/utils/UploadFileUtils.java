@@ -3,6 +3,7 @@ package com.hyun.shopping_mall_example.utils;
 import net.coobird.thumbnailator.Thumbnails;
 import org.springframework.util.FileCopyUtils;
 
+import javax.annotation.Resource;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.Calendar;

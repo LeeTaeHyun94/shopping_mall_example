@@ -13,6 +13,8 @@
     <mvc:resources mapping="/resources/**" location="/resources/"/>
     <!-- 일반 파일 업로드 경로 -->
     <mvc:resources mapping="/img/**" location="/resources/img/" />
+    <!-- CKEditor 파일 업로드 경로 -->
+    <mvc:resources mapping="/ckUpload/**" location="/resources/ckUpload/" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

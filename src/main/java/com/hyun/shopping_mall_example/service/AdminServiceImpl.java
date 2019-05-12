@@ -5,12 +5,16 @@ import com.hyun.shopping_mall_example.domain.GoodsVO;
 import com.hyun.shopping_mall_example.dto.GoodsDetailDTO;
 import com.hyun.shopping_mall_example.persistence.AdminDAO;
 import com.hyun.shopping_mall_example.utils.UploadFileUtils;
+import net.sf.json.JSONObject;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -33,7 +37,7 @@ public class AdminServiceImpl implements AdminService {
         String datePath = UploadFileUtils.makePath(imgUploadPath);
         String fileName = null;
         if (imgFile.getOriginalFilename() != null && imgFile.getOriginalFilename() != "") fileName = UploadFileUtils.fileUpload(imgUploadPath, imgFile.getOriginalFilename(), imgFile.getBytes(), datePath);
-//        else fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+        else fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
         goodsVO.setImgUrl(File.separator + "img" + datePath + File.separator + fileName);
         goodsVO.setThumbImgUrl(File.separator + "img" + datePath + File.separator + "s" + File.separator + "s_" + fileName);
         adminDAO.registerGoods(goodsVO);
@@ -42,6 +46,23 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public List<GoodsVO> goodsList() throws Exception {
         return adminDAO.goodsList();
+    }
+
+    @Override
+    public JSONObject CKEditorFileUpload(MultipartFile uploadedFile) throws Exception {
+        String fileUploadPath = uploadPath + File.separator + "ckUpload";
+        File fileUploadDirectory = new File(fileUploadPath);
+        if (!fileUploadDirectory.exists()) fileUploadDirectory.mkdir();
+        UUID uuid = UUID.randomUUID();
+        String fileName = uuid + "_" + uploadedFile.getOriginalFilename();
+        File target = new File(fileUploadPath, File.separator + fileName);
+        FileCopyUtils.copy(uploadedFile.getBytes(), target);
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.accumulate("uploaded", 1);
+        jsonObject.accumulate("fileName", fileName);
+        jsonObject.accumulate("url", "/ckUpload/" + fileName);
+        return jsonObject;
     }
 
     @Override
