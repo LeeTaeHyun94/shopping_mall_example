@@ -64,6 +64,14 @@
                         </div>
 
                         <div class="inputArea">
+                            <label>이미지 : </label>
+                            <p>원본 이미지</p>
+                            <img class="oriImg" src="${goods.imgUrl}" />
+                            <p>썸네일</p>
+                            <img class="thumbImg" src="${goods.thumbImgUrl}" />
+                        </div>
+
+                        <div class="inputArea">
                             <button type="button" id="modify_btn" class="btn btn-warning">수정</button>
                             <button type="button" id="delete_btn" class="btn btn-danger">삭제</button>
                         </div>

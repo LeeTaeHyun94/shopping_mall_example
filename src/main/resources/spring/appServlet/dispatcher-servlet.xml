@@ -11,6 +11,8 @@
     <context:component-scan base-package="com.hyun.shopping_mall_example"/>
     
     <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <!-- 일반 파일 업로드 경로 -->
+    <mvc:resources mapping="/img/**" location="/resources/img/" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
@@ -25,9 +27,6 @@
             <beans:ref bean="AdminInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-
-    <!-- 일반 파일 업로드 경로 -->
-<!--    <mvc:resources mapping="/img/**" location="/resources/img/" />-->
 
     <bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
         <property name="maxUploadSize" value="10485760" />

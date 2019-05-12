@@ -26,7 +26,7 @@
 
     <!-- 단일 상품 조회 + 카테고리 -->
     <select id="goodsDetail" resultType="com.hyun.shopping_mall_example.dto.GoodsDetailDTO">
-        select g.id, g.name, g.categoryId, g.price, g.stock, g.description, g.imgUrl, g.reg_date, gc.categoryIdRef, gc.name as secondCategoryName
+        select g.id, g.name, g.categoryId, g.price, g.stock, g.description, g.imgUrl, g.reg_date, g.thumbImgUrl, gc.categoryIdRef, gc.name as secondCategoryName
         from goods g
         inner join goods_category gc
         on g.categoryId = gc.id

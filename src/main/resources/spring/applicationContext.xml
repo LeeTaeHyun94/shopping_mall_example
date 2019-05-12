@@ -28,7 +28,7 @@
 
     <!-- 업로드 패스 설정 -->
     <bean class="java.lang.String" id="uploadPath" name="uploadPath">
-        <constructor-arg value="/home/hyun/Workspace/shopping_mall_example/resources" />
+        <constructor-arg value="/home/hyun/Workspace/repositories/shopping_mall_example/target/shopping_mall_example/resources" />
     </bean>
 
     <mvc:annotation-driven/>

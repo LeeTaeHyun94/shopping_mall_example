@@ -5,3 +5,5 @@ label[for='description'] {display: block;}
 input {width: 150px;}
 textarea#description {width: 400px; height: 180px;}
 .select_img img { margin: 20px 0; }
+.oriImg { width: 500px; height: auto; }
+.thumbImg {}
